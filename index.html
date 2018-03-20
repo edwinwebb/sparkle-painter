@@ -1,0 +1,34 @@
+<!doctype html>
+<style>
+input::-webkit-slider-runnable-track {
+    background-image: paint(sparkle);
+}
+</style>
+<input type="range" min="0" max="100" step="1" value="25" />
+<script>
+    const input = document.querySelector('input');
+    let start = performance.now();
+    let end = Infinity;
+    const update = x => {
+        const val = input.value;
+        const tick = window.performance.now() - start;
+        input.style.cssText = `--sparkle-pos: ${val}; --animation-tick: ${tick}`;
+        if(!end) {
+            window.requestAnimationFrame(update);
+        }
+        
+    };
+
+    CSS.paintWorklet.addModule('sparkle.js');
+    
+    input.addEventListener('mouseenter', e => {
+        start = window.performance.now();
+        end = false;
+        update();
+    });
+
+    input.addEventListener('mouseleave', e => {
+        end = true;
+    });
+
+</script>
