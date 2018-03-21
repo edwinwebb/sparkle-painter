@@ -1,8 +1,16 @@
 <!doctype html>
 <style>
-input::-webkit-slider-runnable-track {
-    background-image: paint(sparkle);
-}
+    body {
+        background: #111;
+    }
+    input::-webkit-slider-runnable-track {
+        background-image: paint(sparkle);
+        --sparkle-color: rgb(255,64,129)
+    }
+    input {
+        width: 400px;
+        height: 50px;
+    }
 </style>
 <input type="range" min="0" max="100" step="1" value="25" />
 <script>
