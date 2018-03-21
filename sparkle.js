@@ -37,7 +37,6 @@ class SparklePainter {
         this.particles = this.particles.filter( p => p.y > 0);
 
         this.currentValue = sliderPosition;
-
     }
 }
 
