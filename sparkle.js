@@ -29,19 +29,18 @@ class SparklePainter {
             p.y -= 0.5;
             ctx.beginPath();
             ctx.fillStyle = sColor.replace(')', ','+alpha+')');
-            ctx.rect(p.x, p.y, 1, 1);
+            ctx.rect(p.x, p.y, 2, 2);
             ctx.fill();
             return p;
         } );
 
-        this.particles.filter( p => p.y > 0);
-        
+        this.particles = this.particles.filter( p => p.y > 0);
+
         this.currentValue = sliderPosition;
 
     }
 }
 
-// Register our class under a specific name
 registerPaint('sparkle', SparklePainter);
 
   
